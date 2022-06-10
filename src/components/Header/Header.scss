@@ -1,0 +1,9 @@
+@import "../../App.scss";
+.header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  background: $gradientBackgroundColor;
+  height: 100px;
+  width: 100vw;
+}

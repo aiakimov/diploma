@@ -1,9 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import burgerMenuIsOpen from "./slices/burgerSlice";
+import isSelestedMenuItem from "./slices/NavigationSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    burger: burgerMenuIsOpen,
+    navigation: isSelestedMenuItem,
   },
 });
 

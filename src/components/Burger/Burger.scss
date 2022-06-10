@@ -1,0 +1,43 @@
+@import "../../App.scss";
+.burger {
+  display: none;
+  color: white;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &:hover {
+    color: $lightColor;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  &__list {
+    z-index: 999;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20vh 0 0;
+    gap: 20px;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    background: $gradientBackgroundColor;
+
+    &-item > a {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: white;
+      transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &:hover {
+        color: $lightColor;
+      }
+    }
+  }
+}
