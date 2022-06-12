@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 import logo from "../../img/logo/big-logo-white.png";
 import Burger from "../Burger";
@@ -37,6 +37,9 @@ export const menuLinks = [
     link: "/contacts",
   },
 ];
+export const zeroingScrollY = () => {
+  window.scrollTo(0, 0);
+};
 
 const Navigation: FC = () => {
   const dispatch = useAppDispatch();
@@ -50,6 +53,7 @@ const Navigation: FC = () => {
           src={logo}
           onClick={() => {
             dispatch(isSelestedMenuItem(0));
+            zeroingScrollY();
             if (burgerMenuOpen) {
               dispatch(burgerMenuIsOpen());
             }
@@ -65,12 +69,15 @@ const Navigation: FC = () => {
               <NavLink
                 onClick={() => {
                   dispatch(isSelestedMenuItem(index));
+                  zeroingScrollY();
                 }}
                 className="navigation__list-item-link"
                 to={link.link}
               >
                 {link.name}
-                {Selested === index && <ActiveLine />}
+                <AnimatePresence>
+                  {Selested === index && <ActiveLine />}
+                </AnimatePresence>
               </NavLink>
             </li>
           );
@@ -83,23 +90,5 @@ const Navigation: FC = () => {
 export default Navigation;
 
 const ActiveLine: FC = () => {
-  return (
-    <motion.div
-      layoutId="activeItem"
-      initial={{
-        opacity: 0,
-      }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      style={{
-        height: "5px",
-        borderRadius: "20px",
-        width: "90%",
-        backgroundColor: "#bcf9fe",
-        position: "absolute",
-        bottom: "-9px",
-        left: "5%",
-      }}
-    />
-  );
+  return <motion.div layoutId="activeItem" className="active-line" />;
 };

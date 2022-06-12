@@ -1,0 +1,140 @@
+@import "../../App.scss";
+
+/*--------------reusable-------------*/
+.title {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  text-align: center;
+  font-weight: 600;
+  color: $primaryColor;
+
+  @media screen and (max-width: 576px) {
+    font-size: 1.5rem;
+  }
+}
+
+/*--------------Intro-------------*/
+
+.intro {
+  background-image: url(../../img/Home/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: calc(100vh - 100px);
+  color: white;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 60%;
+    width: 600px;
+    padding: 20px;
+    background: $gradientBackgroundColorTransparent;
+    background-size: 800% 100%;
+    animation: gradient 10s ease infinite;
+    & > h1 {
+      color: white;
+      font-weight: 500;
+    }
+    & > span {
+      margin: 80px 0 50px;
+      text-align: center;
+      margin-top: 200px;
+    }
+    & > img {
+      max-width: 500px;
+      width: 90%;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: none;
+      width: 100%;
+      gap: 50px;
+
+      padding: 100px 40px;
+      & > span {
+        margin: 200px 0 50px;
+      }
+      & > img {
+        max-width: 500px;
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 576px) {
+      padding: 20px 4%;
+      justify-content: flex-start;
+    }
+    @media screen and(max-width: 400px) {
+      & > span {
+        margin: 20px 0 50px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    background-position: 20% 80%;
+  }
+}
+
+/*--------------About-------------*/
+.about {
+  margin: 50px 0;
+
+  img {
+    width: 25px;
+    margin: 0 10px 0 0;
+    float: left;
+  }
+
+  &-contant {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    & > p {
+      display: block;
+      width: 45%;
+      padding: 20px;
+      color: $primaryColor;
+      & > a {
+        background-color: rgba(255, 0, 0, 0.834);
+        color: white;
+        padding: 0 1px;
+        border-radius: 3px;
+      }
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+    }
+
+    & > h2 {
+      font-weight: 600;
+    }
+  }
+}
+
+.blue {
+  height: 150vh;
+  background-color: blue;
+}
+
+/*--------------Animations-------------*/
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

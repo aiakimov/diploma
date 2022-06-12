@@ -1,0 +1,13 @@
+.error {
+  background-color: rgb(0, 180, 223);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > img {
+    width: 99%;
+    @media screen and (min-width: 992px) {
+      width: 900px;
+    }
+  }
+}

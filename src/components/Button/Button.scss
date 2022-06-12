@@ -1,0 +1,41 @@
+@import "../../App.scss";
+.button {
+  color: white;
+  background: $primaryColor;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  width: fit-content;
+  &:hover {
+    background: $mainColor;
+    box-shadow: 0px 0px 35px -5px $primaryColor, 0 0 10px 3px $mainColor;
+  }
+
+  &--gradient {
+    color: white;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    background: $gradientBackgroundColorTransparentButton;
+    width: fit-content;
+
+    &:hover {
+      background: $gradientBackgroundColor;
+      box-shadow: 0px 0px 15px -5px $lightColor, 0 0 10px -3px $mainColor;
+    }
+  }
+}
