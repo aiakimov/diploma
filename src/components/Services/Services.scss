@@ -41,9 +41,9 @@
       &-img {
         z-index: -1;
         max-width: 200px;
-        filter: hue-rotate(190deg) opacity(88%) invert(1%);
-        -webkit-filter: hue-rotate(190deg) opacity(88%) invert(1%);
-        -moz-filter: hue-rotate(190deg) opacity(88%) invert(1%);
+        filter: hue-rotate(175deg) opacity(75%) invert(3%);
+        -webkit-filter: hue-rotate(175deg) opacity(75%) invert(3%);
+        -moz-filter: hue-rotate(175deg) opacity(75%) invert(3%);
       }
       @media screen and (max-width: 768px) {
         flex-direction: column;
@@ -79,9 +79,9 @@
     & > img {
       width: 200px;
       z-index: -1;
-      filter: hue-rotate(190deg) opacity(88%) invert(1%);
-      -webkit-filter: hue-rotate(190deg) opacity(88%) invert(1%);
-      -moz-filter: hue-rotate(190deg) opacity(88%) invert(1%);
+      filter: hue-rotate(175deg) opacity(75%) invert(3%);
+      -webkit-filter: hue-rotate(175deg) opacity(75%) invert(3%);
+      -moz-filter: hue-rotate(175deg) opacity(75%) invert(3%);
     }
   }
   h1 {

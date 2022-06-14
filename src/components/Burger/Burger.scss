@@ -22,16 +22,17 @@
     top: 100px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20vh 0 0;
-    gap: 4vh;
+    align-items: flex-start;
+    padding: 10vh 0 0;
+    gap: 2vh;
     width: 100vw;
     height: calc(100vh - 100px);
     background: $gradientBackgroundColor;
 
     &-item > a {
+      padding: 0 3vw 0 10vw;
       z-index: 999;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 400;
       color: white;
       transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);

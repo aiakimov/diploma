@@ -26,11 +26,11 @@
       width: 250px;
       padding: 20px;
       gap: 10px;
-      background: $gradientBackgroundColorTransparentLight;
+      background: transparent;
       margin-bottom: 20px;
-      -webkit-box-shadow: 0px 0px 21px -2px rgba(34, 60, 80, 0.2);
-      -moz-box-shadow: 0px 0px 21px -2px rgba(34, 60, 80, 0.2);
-      box-shadow: 0px 0px 21px -2px rgba(34, 60, 80, 0.2);
+      -webkit-box-shadow: 0px 0px 21px -2px $primaryColor;
+      -moz-box-shadow: 0px 0px 21px -2px $primaryColor;
+      box-shadow: 0px 0px 21px -2px $primaryColor;
       &-subtitle {
         color: $mainColor;
         font-weight: 600;

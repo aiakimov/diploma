@@ -1,5 +1,8 @@
 import { FC } from "react";
+
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -19,7 +22,11 @@ const Burger: FC = () => {
   return (
     <>
       <button onClick={() => dispatch(burgerMenuIsOpen())} className="burger">
-        <MenuIcon fontSize="large" />
+        {!burgerIsOpen ? (
+          <MenuIcon fontSize="large" />
+        ) : (
+          <CloseIcon fontSize="large" />
+        )}
       </button>
       <AnimatePresence>
         {burgerIsOpen && (

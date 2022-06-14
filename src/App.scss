@@ -1,25 +1,19 @@
-$primaryColor: #31a9ba;
-$mainColor: #0c669c;
-$lightColor: #bff2f7;
-$gradientBackgroundColor: linear-gradient(
-  90deg,
-  rgba(12, 102, 156, 1) 20%,
-  rgba(59, 186, 194, 1) 100%
-);
+$primaryColor: #75c9d2;
+$mainColor: #58bd92;
+$lightColor: #ffffffb8;
+$gradientBackgroundColor: linear-gradient(90deg, #58bd91 0%, #75c9d2 100%);
 
 $gradientBackgroundColorTransparent: linear-gradient(
   90deg,
-  rgba(12, 102, 156, 0.5) 0%,
-  rgba(59, 186, 194, 0.4) 30%,
-  rgba(12, 102, 156, 0.3) 70%,
-  rgba(59, 186, 194, 0.4) 100%
+  #75c9d23d 0%,
+  #58bd9127 20%,
+  #75c9d23a 70%,
+  #58bd913f 100%
 );
 $gradientBackgroundColorTransparentLight: linear-gradient(
   90deg,
-  rgba(12, 102, 156, 0.2) 0%,
-  rgba(59, 186, 194, 0.3) 30%,
-  rgba(12, 102, 156, 0.1) 70%,
-  rgba(59, 186, 194, 0.3) 100%
+  #75c9d219 0%,
+  #58bd9117 100%
 );
 $gradientBackgroundColorTransparentButton: linear-gradient(
   90deg,
@@ -27,5 +21,5 @@ $gradientBackgroundColorTransparentButton: linear-gradient(
   rgba(59, 186, 194, 0.7) 100%
 );
 $backgroundColor: rgba(59, 186, 194, 0.4);
-$size: 20px;
+$size: 30px;
 $spacing: $size/3;

@@ -150,6 +150,9 @@
         color: $primaryColor;
         margin: 50px;
         text-align: left;
+        @media screen and (max-width: 992px) {
+          margin: 5px;
+        }
         & > li {
           text-align: left;
           margin: 40px 0;
