@@ -1,0 +1,92 @@
+@import "../../App.scss";
+
+.contacts {
+  &__solution {
+    margin: 30px 0 100px 0;
+    text-align: right;
+    @media screen and (max-width: 768px) {
+      margin: 20px 0;
+    }
+    h3 {
+      color: $mainColor;
+      margin: 5px 0;
+    }
+    img {
+      float: left;
+      width: 400px;
+      margin: 0 20px;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        margin: 0 0 20px 0;
+        float: none;
+      }
+    }
+  }
+  &__info {
+    &-wrapper {
+      width: 100%;
+      display: flex;
+      font-size: 1.2rem;
+      line-height: 2rem;
+      color: $mainColor;
+      @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 50px;
+      }
+    }
+
+    justify-content: space-between;
+
+    &-text {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      gap: 20px;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+      }
+      span {
+        color: $primaryColor;
+        font-weight: 600;
+      }
+    }
+    &-links {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      text-align: right;
+      align-items: flex-end;
+      gap: 40px;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
+      & > a {
+        z-index: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+        &:hover {
+          color: $primaryColor;
+        }
+      }
+    }
+  }
+  &__map {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  &__license {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 1.3rem;
+    color: $mainColor;
+  }
+}

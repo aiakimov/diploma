@@ -6,7 +6,7 @@ import logo from "../../img/logo/big-logo-white.png";
 import Burger from "../Burger";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
+import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
 import { burgerMenuIsOpen } from "../../app/slices/burgerSlice";
 
 import "./Navigation.scss";

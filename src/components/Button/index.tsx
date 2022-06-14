@@ -5,7 +5,7 @@ import "./Button.scss";
 import { Link } from "react-router-dom";
 
 import { useAppDispatch } from "../../app/hooks";
-import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
+import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
 
 import { menuLinks } from "../Navigation";
 import { zeroingScrollY } from "../Navigation";
