@@ -13,13 +13,16 @@ const Home: FC = () => {
     <motion.div
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+      exit={{
+        x: window.innerWidth,
+        transition: { duration: 0 },
+      }}
     >
       <section className="intro">
         <Container
           style={{
             height: "100%",
-            width: "100%",
+            width: "auto",
             display: "flex",
             justifyContent: "flex-end",
           }}

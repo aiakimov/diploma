@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getDoctors } from "../../app/slices/specialistsSlice";
 import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
 import { Container } from "@mui/system";
+import ToBackBtn, { BackBtn } from "../ToBackBtn";
 
 import "./Doctor.scss";
 
@@ -25,9 +26,10 @@ const Doctor: FC = () => {
       animate={{ width: "100%" }}
       exit={{
         x: window.innerWidth,
-        transition: { duration: 0.1 },
+        transition: { duration: 0 },
       }}
     >
+      <ToBackBtn to={BackBtn.back} />
       <Container>
         <h1 className="doctor-title">{thisDoctor.name}</h1>
         <div className="doctor-wrapper">

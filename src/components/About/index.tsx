@@ -26,8 +26,8 @@ const About: FC = () => {
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
       exit={{
-        x: window.innerWidth,
-        transition: { duration: 0.1 },
+        x: "100%",
+        width: 0,
       }}
     >
       <section className="about-moscow">

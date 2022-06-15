@@ -11,6 +11,8 @@ import Specialists from "./components/Specialists";
 import Doctor from "./components/Specialists/Doctor";
 import Services from "./components/Services";
 import ServicesByType from "./components/Services/ServicesByType";
+import Widget from "./components/Widget";
+import ToBackBtn, { BackBtn } from "./components/ToBackBtn";
 
 function App() {
   const location = useLocation();
@@ -18,6 +20,8 @@ function App() {
   return (
     <>
       <Header />
+      <ToBackBtn to={BackBtn.up} />
+      <Widget />
       <AnimatePresence>
         <LayoutGroup>
           <Routes location={location.pathname}>

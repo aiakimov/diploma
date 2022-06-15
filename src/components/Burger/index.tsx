@@ -11,6 +11,7 @@ import { menuLinks } from "../Navigation";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { burgerMenuIsOpen } from "../../app/slices/burgerSlice";
+import { isScrollingWindow } from "../../app/slices/toBackBtnSlice";
 
 const Burger: FC = () => {
   const dispatch = useAppDispatch();
@@ -50,7 +51,9 @@ const Burger: FC = () => {
               return (
                 <li key={link.name} className="burger__list-item">
                   <NavLink
-                    onClick={() => dispatch(burgerMenuIsOpen())}
+                    onClick={() => {
+                      dispatch(burgerMenuIsOpen());
+                    }}
                     to={link.link}
                   >
                     {link.name}

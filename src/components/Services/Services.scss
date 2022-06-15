@@ -2,7 +2,7 @@
 
 .services {
   h1 {
-    margin: 30px;
+    margin: 30px 0;
   }
   &-description {
     display: block;
@@ -70,7 +70,6 @@
 }
 
 .service {
-  padding-bottom: 50px;
   &__header {
     display: flex;
     flex-direction: column;
@@ -84,9 +83,7 @@
       -moz-filter: hue-rotate(175deg) opacity(75%) invert(3%);
     }
   }
-  h1 {
-    margin: 30px 0 0;
-  }
+
   h2 {
     text-align: center;
     margin-bottom: 50px;

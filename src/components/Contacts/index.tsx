@@ -16,7 +16,10 @@ const Contacts: FC = () => {
       className="contacts"
       initial={{ width: 0 }}
       animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+      exit={{
+        x: window.innerWidth,
+        transition: { duration: 0 },
+      }}
     >
       <section className="contacts__solution">
         <Container>

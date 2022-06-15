@@ -25,12 +25,13 @@
       justify-content: space-between;
       width: 250px;
       padding: 20px;
-      gap: 10px;
+      gap: 15px;
       background: transparent;
       margin-bottom: 20px;
-      -webkit-box-shadow: 0px 0px 21px -2px $primaryColor;
-      -moz-box-shadow: 0px 0px 21px -2px $primaryColor;
-      box-shadow: 0px 0px 21px -2px $primaryColor;
+      border-radius: 10px;
+      -webkit-box-shadow: 0px 0px 11px -2px $primaryColor;
+      -moz-box-shadow: 0px 0px 11px -2px $primaryColor;
+      box-shadow: 0px 0px 11px -2px $primaryColor;
       &-subtitle {
         color: $mainColor;
         font-weight: 600;
@@ -44,9 +45,7 @@
       }
       & > img {
         width: 200px;
-        -webkit-box-shadow: 0px 0px 21px 3px rgba(34, 60, 80, 0.16);
-        -moz-box-shadow: 0px 0px 21px 3px rgba(34, 60, 80, 0.16);
-        box-shadow: 0px 0px 21px 3px rgba(34, 60, 80, 0.16);
+        border-radius: 10px;
       }
     }
   }

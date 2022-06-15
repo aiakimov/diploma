@@ -10,6 +10,7 @@ import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
 import { burgerMenuIsOpen } from "../../app/slices/burgerSlice";
 
 import "./Navigation.scss";
+import { toBackButton } from "../../app/slices/toBackBtnSlice";
 
 export const menuLinks = [
   {
@@ -65,21 +66,23 @@ const Navigation: FC = () => {
       <ul className="navigation__list">
         {menuLinks.map((link, index) => {
           return (
-            <li key={link.name} className="navigation__list-item">
-              <NavLink
-                onClick={() => {
-                  dispatch(isSelestedMenuItem(index));
-                  zeroingScrollY();
-                }}
-                className="navigation__list-item-link"
-                to={link.link}
-              >
-                {link.name}
-                <AnimatePresence>
+            <AnimatePresence>
+              <li key={link.name} className="navigation__list-item">
+                <NavLink
+                  onClick={() => {
+                    dispatch(toBackButton(String(window.location.href)));
+                    dispatch(isSelestedMenuItem(index));
+                    zeroingScrollY();
+                  }}
+                  className="navigation__list-item-link"
+                  to={link.link}
+                >
+                  {link.name}
+
                   {Selested === index && <ActiveLine />}
-                </AnimatePresence>
-              </NavLink>
-            </li>
+                </NavLink>
+              </li>
+            </AnimatePresence>
           );
         })}
       </ul>
@@ -90,5 +93,9 @@ const Navigation: FC = () => {
 export default Navigation;
 
 const ActiveLine: FC = () => {
-  return <motion.div layoutId="activeItem" className="active-line" />;
+  return (
+    <AnimatePresence>
+      <motion.div layoutId="activeItem" className="active-line" />;
+    </AnimatePresence>
+  );
 };

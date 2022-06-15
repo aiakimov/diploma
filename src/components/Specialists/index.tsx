@@ -27,7 +27,7 @@ const Specialists: FC = () => {
       animate={{ width: "100%" }}
       exit={{
         x: window.innerWidth,
-        transition: { duration: 0.1 },
+        transition: { duration: 0 },
       }}
     >
       <Container>

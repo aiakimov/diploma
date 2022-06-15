@@ -5,6 +5,8 @@ import servicesSlice, { isLoadingServices } from "./slices/servicesSlice";
 import spcialistsSlice, {
   isLoadingSpetialists,
 } from "./slices/specialistsSlice";
+import toBackBtn from "./slices/toBackBtnSlice";
+import widgetMenuIsOpen from "./slices/widgetSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +17,8 @@ export const store = configureStore({
     servicesByType: servicesSlice,
     loadingServices: isLoadingServices,
     loadingSpecialists: isLoadingSpetialists,
+    widget: widgetMenuIsOpen,
+    toBackBtn: toBackBtn,
   },
 });
 

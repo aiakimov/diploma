@@ -8,6 +8,8 @@ import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
 import { Container } from "@mui/system";
 import CircleIcon from "@mui/icons-material/Circle";
 
+import ToBackBtn, { BackBtn } from "../ToBackBtn";
+
 import "./Services.scss";
 
 const ServicesByType: FC = () => {
@@ -30,9 +32,10 @@ const ServicesByType: FC = () => {
       animate={{ width: "100%" }}
       exit={{
         x: window.innerWidth,
-        transition: { duration: 0.1 },
+        transition: { duration: 0 },
       }}
     >
+      <ToBackBtn to={BackBtn.back} />
       <Container>
         {loading && <div className="loader"></div>}
         {!loading &&

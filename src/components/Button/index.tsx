@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import { useAppDispatch } from "../../app/hooks";
 import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
+import { toBackButton } from "../../app/slices/toBackBtnSlice";
 
 import { menuLinks } from "../Navigation";
 import { zeroingScrollY } from "../Navigation";
@@ -56,6 +57,8 @@ const Button: FC<ButtonProps> = ({ text, style, type, href, pageLink }) => {
       to={pageLink || "/"}
       className={style}
       onClick={() => {
+        dispatch(toBackButton(String(window.location.href)));
+
         dispatch(isSelestedMenuItem(findLink()));
         zeroingScrollY();
       }}

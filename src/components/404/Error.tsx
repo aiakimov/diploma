@@ -7,9 +7,12 @@ import img from "../../img/404.jpg";
 const Error: FC = () => {
   return (
     <motion.section
-      initial={{ width: 0, x: 0 }}
+      initial={{ width: 0 }}
       animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+      exit={{
+        x: window.innerWidth,
+        transition: { duration: 0 },
+      }}
       className="error"
     >
       <img src={img} alt="" />
