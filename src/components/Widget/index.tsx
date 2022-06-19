@@ -11,6 +11,7 @@ import { menuLinks } from "../Navigation";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { widgetMenuIsOpen } from "../../app/slices/widgetSlice";
+import { isCallBackOpen } from "../../app/slices/modalSlice";
 
 import main from "../../img/widget/main.png";
 import call from "../../img/widget/call.png";
@@ -40,7 +41,7 @@ const Widget: FC = () => {
         </motion.div>
       </button>
 
-      <AnimatePresence>
+      <AnimatePresence initial={true} exitBeforeEnter>
         {widgetIsOpen && (
           <motion.ul
             initial={{
@@ -62,7 +63,10 @@ const Widget: FC = () => {
               <img src={call} alt="" />
               <h4>Позвонить</h4>
             </a>
-            <li className="widget__list-item">
+            <li
+              className="widget__list-item"
+              onClick={() => dispatch(isCallBackOpen())}
+            >
               <img src={callback}></img>
               <h4>Заказать звонок</h4>
             </li>

@@ -2,8 +2,8 @@
 
 .widget {
   position: fixed;
-  bottom: 80px;
-  left: 100px;
+  bottom: 70px;
+  left: 70px;
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
@@ -45,16 +45,19 @@
     }
   }
   &__list {
+    height: 200px;
     background: #72e9b5c1;
     position: fixed;
-    left: 150px;
-    bottom: 150px;
+    left: 130px;
+    bottom: 130px;
     gap: 20px;
     display: flex;
     flex-direction: column;
     width: auto;
     border-radius: 10px;
     padding: 10px;
+    z-index: 9999;
+
     @media screen and (max-width: 992px) {
       background: #72e9b5dc;
       bottom: 130px;

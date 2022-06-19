@@ -11,7 +11,8 @@ import { menuLinks } from "../Navigation";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { burgerMenuIsOpen } from "../../app/slices/burgerSlice";
-import { isScrollingWindow } from "../../app/slices/toBackBtnSlice";
+
+import SocialLinks from "../SocialLinks";
 
 const Burger: FC = () => {
   const dispatch = useAppDispatch();
@@ -61,6 +62,9 @@ const Burger: FC = () => {
                 </li>
               );
             })}
+            <div className="social-wrapper">
+              <SocialLinks />
+            </div>
           </motion.ul>
         )}
       </AnimatePresence>

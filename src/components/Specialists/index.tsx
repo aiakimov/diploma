@@ -9,6 +9,7 @@ import Button from "../Button";
 import { ButtonStyle, ButtonType } from "../Button";
 
 import "./Specialists.scss";
+import Footer from "../Footer";
 
 const Specialists: FC = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +32,6 @@ const Specialists: FC = () => {
       }}
     >
       <Container>
-        {" "}
         {loading && <div className="loader"></div>}
         <h1 className="title">Наши специалисты</h1>
         <h3 className="specialists-subtitle">
@@ -55,6 +55,7 @@ const Specialists: FC = () => {
             ))}
         </ul>
       </Container>
+      {!loading && <Footer />}
     </motion.div>
   );
 };

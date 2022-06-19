@@ -1,0 +1,37 @@
+@import "../../App.scss";
+
+.footer {
+  padding: 30px 0;
+  background: $gradientBackgroundColorTransparentLight;
+  p {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &-navlinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    &-item {
+      color: $primaryColor;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      &:hover {
+        color: $mainColor;
+      }
+    }
+  }
+}

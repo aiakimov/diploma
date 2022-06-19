@@ -6,6 +6,8 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 
+import Footer from "../Footer";
+
 import "./Contacts.scss";
 
 import img from "../../img/contacts/kontakty.jpg";
@@ -75,15 +77,12 @@ const Contacts: FC = () => {
           src="https://yandex.ru/map-widget/v1/?um=constructor%3Abb3b099e5a3421c92e5a39ccebe6ddf344cd280eb1c0ae34d06baa3670e4e2d8&amp;source=constructor"
           width="100%"
           height="300"
+          style={{
+            marginBottom: "50px",
+          }}
         ></iframe>
       </section>
-      <div className="contacts__license">
-        Клиника «Swiss Smile» <br />
-        ОГРН: 1147746185762, ИНН: 7704857549, КПП: 770401001
-        <br />
-        Лицензия на осуществление медицинской деятельности № ЛО-77-01-016119 от
-        29.05.2018 г.
-      </div>
+      <Footer />
     </motion.div>
   );
 };

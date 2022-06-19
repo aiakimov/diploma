@@ -4,6 +4,8 @@ import { Container } from "@mui/system";
 import CircleIcon from "@mui/icons-material/Circle";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
+import Footer from "../Footer";
+
 import "./About.scss";
 
 import img1 from "../../img/about/1.jpg";
@@ -14,10 +16,7 @@ import img5 from "../../img/about/5.jpg";
 import moscowFoto from "../../img/about/moscow.jpg";
 import sertifikat from "../../img/about/sertifikat.jpg";
 
-import icon1 from "../../img/about/icons/1.png";
-import icon2 from "../../img/about/icons/2.png";
-import icon3 from "../../img/about/icons/3.png";
-import icon4 from "../../img/about/icons/4.png";
+import honorIcon from "../../img/about/honor/honor-icon.png";
 
 const About: FC = () => {
   return (
@@ -58,6 +57,85 @@ const About: FC = () => {
             расположена в центре Москвы. «Swiss Smile» — лучшая стоматология с
             мировым именем.
           </p>
+        </Container>
+      </section>
+      <section className="about-swiss">
+        <h1 className="title">Настоящее швейцарское качество</h1>
+        <Container>
+          <div className="about-swiss__contant">
+            <div className="about-swiss__contant-box">
+              <div className="about-swiss__contant-img">
+                <img src={img1} alt="" />
+              </div>
+              <p>
+                Уровень оказания медицинских услуг в Швейцарии считается одним
+                из лучших в мире, недаром ее называют страной высококлассных
+                врачей и уникальных медицинских технологий. Главная задача
+                швейцарских стоматологов — это, в первую очередь, стремление
+                сохранить все зубы пациента здоровыми и красивыми. И каждый
+                специалист в нашей клинике ставит перед собой именно такую
+                задачу. Именно высокие стандарты лечения, поддерживаемые в
+                «Swiss Smile», вывели наши клиники в Европе и России на уровень
+                лучших стоматологий мира.
+              </p>
+            </div>
+            <div className="about-swiss__contant-box about-swiss__contant-box--reverse ">
+              <div className="about-swiss__contant-img">
+                <img src={img2} alt="" />
+              </div>
+              <p>
+                В нашей клинике оказывают весь спектр стоматологических услуг,
+                включающий детскую стоматологию, лечение под наркозом,
+                имплантацию, протезирование, гигиену, пародонтологическое
+                лечение, все виды отбеливания, а также новую для российских
+                пациентов услугу — SPA для зубов, направленную на очищение и
+                комплексный профессиональный уход за полостью рта. Все процедуры
+                проводят только самые лучшие и опытные врачи, которые каждый год
+                повышают свою квалификацию за рубежом. Кроме того, в «Swiss
+                Smile» при лечении каждого пациента мы используем
+                междисциплинарный подход, подразумевающий совместную работу всех
+                врачей клиники. Благодаря такой слаженной работе «Swiss Smile»
+                обрела репутацию уникальной клиники c современными методами
+                лечения и первоклассным сервисом.
+              </p>
+            </div>
+            <div className="about-swiss__contant-box">
+              <div className="about-swiss__contant-img">
+                <img src={img3} alt="" />
+              </div>
+              <p>
+                Все кабинеты клиники оснащены высокоточной техникой Например,
+                мобильная рентгеновская аппаратура делает любую процедуру более
+                комфортной, избавляя от необходимости перемещаться по клинике
+                для дополнительной диагностики. А современный стоматологический
+                микроскоп значительно увеличивает качество лечения кариеса и его
+                осложнений. Кроме того, во всех кабинетах установлены удобные
+                стоматологические кресла, в которых пациент будет чувствовать
+                себя комфортно даже во время длительной процедуры.
+              </p>
+            </div>
+            <div className="about-swiss__contant-box about-swiss__contant-box--reverse ">
+              <div className="about-swiss__contant-img">
+                <img src={img4} alt="" />
+              </div>
+              <p>
+                Безопасность пациента — одна из самых главных задач нашей
+                клиники. Все манипуляции должны быть абсолютно безопасными с
+                точки зрения риска заражения во время лечения вирусными и
+                инфекционными заболеваниями, поэтому мы используем самое
+                современное и качественное оборудование для стерилизации, что
+                позволяет уничтожить во время дезинфекции аппаратов и
+                инструментов все известные микроорганизмы и вирусы. Мы
+                гарантируем здоровую и красивую улыбку каждому пациенту!
+              </p>
+            </div>
+          </div>
+          <span className="quote">
+            <FormatQuoteIcon />
+            Среди наших партнеров лучшие зуботехнические лаборатории и
+            специалисты Швейцарии, Германии, США, Лихтенштейна.
+            <FormatQuoteIcon />
+          </span>
         </Container>
       </section>
       <section className="about-equipment">
@@ -153,122 +231,53 @@ const About: FC = () => {
           </span>
         </Container>
       </section>
-      <section className="about-swiss">
-        <h1 className="title">Настоящее швейцарское качество</h1>
+      <section className="honors">
         <Container>
-          <div className="about-swiss__contant">
-            <div className="about-swiss__contant-box">
-              <div className="about-swiss__contant-img">
-                <img src={img1} alt="" />
-              </div>
-              <p>
-                Уровень оказания медицинских услуг в Швейцарии считается одним
-                из лучших в мире, недаром ее называют страной высококлассных
-                врачей и уникальных медицинских технологий. Главная задача
-                швейцарских стоматологов — это, в первую очередь, стремление
-                сохранить все зубы пациента здоровыми и красивыми. И каждый
-                специалист в нашей клинике ставит перед собой именно такую
-                задачу. Именно высокие стандарты лечения, поддерживаемые в
-                «Swiss Smile», вывели наши клиники в Европе и России на уровень
-                лучших стоматологий мира.
-              </p>
-            </div>
-            <div className="about-swiss__contant-box about-swiss__contant-box--reverse ">
-              <div className="about-swiss__contant-img">
-                <img src={img2} alt="" />
-              </div>
-              <p>
-                В нашей клинике оказывают весь спектр стоматологических услуг,
-                включающий детскую стоматологию, лечение под наркозом,
-                имплантацию, протезирование, гигиену, пародонтологическое
-                лечение, все виды отбеливания, а также новую для российских
-                пациентов услугу — SPA для зубов, направленную на очищение и
-                комплексный профессиональный уход за полостью рта. Все процедуры
-                проводят только самые лучшие и опытные врачи, которые каждый год
-                повышают свою квалификацию за рубежом. Кроме того, в «Swiss
-                Smile» при лечении каждого пациента мы используем
-                междисциплинарный подход, подразумевающий совместную работу всех
-                врачей клиники. Благодаря такой слаженной работе «Swiss Smile»
-                обрела репутацию уникальной клиники c современными методами
-                лечения и первоклассным сервисом.
-              </p>
-            </div>
-            <div className="about-swiss__contant-box">
-              <div className="about-swiss__contant-img">
-                <img src={img3} alt="" />
-              </div>
-              <p>
-                Все кабинеты клиники оснащены высокоточной техникой Например,
-                мобильная рентгеновская аппаратура делает любую процедуру более
-                комфортной, избавляя от необходимости перемещаться по клинике
-                для дополнительной диагностики. А современный стоматологический
-                микроскоп значительно увеличивает качество лечения кариеса и его
-                осложнений. Кроме того, во всех кабинетах установлены удобные
-                стоматологические кресла, в которых пациент будет чувствовать
-                себя комфортно даже во время длительной процедуры.
-              </p>
-            </div>
-            <div className="about-swiss__contant-box about-swiss__contant-box--reverse ">
-              <div className="about-swiss__contant-img">
-                <img src={img4} alt="" />
-              </div>
-              <p>
-                Безопасность пациента — одна из самых главных задач нашей
-                клиники. Все манипуляции должны быть абсолютно безопасными с
-                точки зрения риска заражения во время лечения вирусными и
-                инфекционными заболеваниями, поэтому мы используем самое
-                современное и качественное оборудование для стерилизации, что
-                позволяет уничтожить во время дезинфекции аппаратов и
-                инструментов все известные микроорганизмы и вирусы. Мы
-                гарантируем здоровую и красивую улыбку каждому пациенту!
-              </p>
-            </div>
-          </div>
-          <span className="quote">
-            <FormatQuoteIcon />
-            Среди наших партнеров лучшие зуботехнические лаборатории и
-            специалисты Швейцарии, Германии, США, Лихтенштейна.
-            <FormatQuoteIcon />
-          </span>
-        </Container>
-      </section>
-      <section className="about-guarantee">
-        <h2 className="title">Гарантии и уровень обслуживания</h2>
-        <Container>
-          <div className="about-guarantee__wrapper ">
-            <div className="about-guarantee__box about-guarantee__box--reverse">
-              <img src={icon1} alt="" />
-              <p>На лечение и протезирование даем гарантию — до 5 лет.</p>
-            </div>
-            <div className="about-guarantee__box ">
-              <img src={icon2} alt="" />
-              <p>Гарантия анонимности личной информации.</p>
-            </div>
-            <div className="about-guarantee__box about-guarantee__box--reverse">
-              <img src={icon3} alt="" />
-              <p>
-                Уровень качества обслуживания в нашей клинике соответствуют
-                самым высоким мировым стандартам.
-              </p>
-            </div>
-            <div className="about-guarantee__box">
-              <img src={icon4} alt="" />
-              <p>
-                Полная стерильность операций — благодаря патентованным
-                технологиям.
-              </p>
+          <div className="honors__wrapper">
+            <h1 className="title">Награды</h1>
+            <p>Стоматологическая клиника «Swiss Smile»:</p>
+            <div className="honors__inner">
+              <ul className="honors__inner-list">
+                <li className="honors__inner-list-item">
+                  <img src={honorIcon} alt="icon" />
+                  <p>
+                    В 2007 году были признаны предпринимателями года в
+                    Швейцарии.
+                  </p>
+                </li>
+                <li className="honors__inner-list-item">
+                  <img src={honorIcon} alt="icon" />
+                  <p>The Leading Dental Clinic (За стандарты и технологии).</p>
+                </li>
+                <li className="honors__inner-list-item">
+                  <img src={honorIcon} alt="icon" />
+                  <p>
+                    2009 Swiss Economic Award — Финалист в категории «Лучшая
+                    услуга».
+                  </p>
+                </li>
+                <li className="honors__inner-list-item">
+                  <img src={honorIcon} alt="icon" />
+                  <p>
+                    2008 Private Dentistry Awards UK (Best new practice, Most
+                    innovative practice, Most attractive practice, Runner up —
+                    Best marketing, Runner up — Practice of the Year 2008).
+                  </p>
+                </li>
+                <li className="honors__inner-list-item">
+                  <img src={honorIcon} alt="icon" />
+                  <p>
+                    В 2016 году основатели сети сестры Haleh und Golnar Abivardi
+                    были признаны бизнес-леди в Швейцарии.
+                  </p>
+                </li>
+              </ul>
             </div>
           </div>
         </Container>
       </section>
       <img className="about-sertificat" src={sertifikat} alt="" />
-      <div className="about__license">
-        Клиника «Swiss Smile» <br />
-        ОГРН: 1147746185762, ИНН: 7704857549, КПП: 770401001
-        <br />
-        Лицензия на осуществление медицинской деятельности № ЛО-77-01-016119 от
-        29.05.2018 г.
-      </div>
+      <Footer />
     </motion.div>
   );
 };

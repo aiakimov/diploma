@@ -4,7 +4,10 @@
   justify-content: center;
   align-items: center;
   height: calc(100vh - 100px);
-
+  width: 100%;
+  filter: brightness(88%) hue-rotate(325deg) saturate(31%);
+  -webkit-filter: brightness(88%) hue-rotate(325deg) saturate(31%);
+  -moz-filter: brightness(88%) hue-rotate(325deg) saturate(31%);
   & > img {
     width: 99%;
     @media screen and (min-width: 992px) {

@@ -3,10 +3,20 @@ import { motion } from "framer-motion";
 import { Container } from "@mui/system";
 
 import "./Home.scss";
+
 import swissLogo from "../../img/logo/logo.png";
 import logo from "../../img/logo/big-logo-white.png";
+
+import icon1 from "../../img/Home/guarantee/icons/1.png";
+import icon2 from "../../img/Home/guarantee/icons/2.png";
+import icon3 from "../../img/Home/guarantee/icons/3.png";
+import icon4 from "../../img/Home/guarantee/icons/4.png";
+
+import phoneIcon from "../../img/widget/call.png";
+
 import { ButtonStyle, ButtonType } from "../Button";
 import Button from "../Button";
+import Footer from "../Footer";
 
 const Home: FC = () => {
   return (
@@ -87,7 +97,56 @@ const Home: FC = () => {
           </div>
         </Container>
       </section>
-      <div className="blue"></div>
+      <section className="record">
+        <Container>
+          <div className="record__wrapper">
+            <img src={phoneIcon} alt="icon" />
+            <a href="tel:+375444851882">
+              <h1 className="title">+123-45-67-89</h1>
+            </a>
+            <p>
+              Записаться на прием в клинику вы можете по телефону с 09:00 до
+              21:00 (Пн-Пт), с 09:00 до 20:00 (Сб), Вс — выходной, или заполните
+              форму заявки (мы перезвоним вам для уточнения деталей):
+            </p>
+            <Button
+              text="Записаться на прием"
+              type={ButtonType.button}
+              style={ButtonStyle.gradient}
+            />
+          </div>
+        </Container>
+      </section>
+      <section className="guarantee">
+        <h2 className="title">Гарантии и уровень обслуживания</h2>
+        <Container>
+          <div className="guarantee__wrapper ">
+            <div className="guarantee__box guarantee__box--reverse">
+              <img src={icon1} alt="" />
+              <p>На лечение и протезирование даем гарантию — до 5 лет.</p>
+            </div>
+            <div className="guarantee__box ">
+              <img src={icon2} alt="" />
+              <p>Гарантия анонимности личной информации.</p>
+            </div>
+            <div className="guarantee__box guarantee__box--reverse">
+              <img src={icon3} alt="" />
+              <p>
+                Уровень качества обслуживания в нашей клинике соответствуют
+                самым высоким мировым стандартам.
+              </p>
+            </div>
+            <div className="guarantee__box">
+              <img src={icon4} alt="" />
+              <p>
+                Полная стерильность операций — благодаря патентованным
+                технологиям.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+      <Footer />
     </motion.div>
   );
 };

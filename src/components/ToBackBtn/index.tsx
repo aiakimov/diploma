@@ -9,7 +9,12 @@ import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
 
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { isScrollingWindow } from "../../app/slices/toBackBtnSlice";
+
+import {
+  isBackBtnVisible,
+  isScrollingWindow,
+} from "../../app/slices/toBackBtnSlice";
+
 import { zeroingScrollY } from "../Navigation";
 
 export enum BackBtn {
@@ -18,7 +23,7 @@ export enum BackBtn {
 }
 
 interface PropsToBackBtn {
-  to: BackBtn;
+  to?: BackBtn;
 }
 
 const zeroingSmoothScrollY = () => {
@@ -35,11 +40,15 @@ const ToBackBtn: FC<PropsToBackBtn> = ({ to }) => {
     (state) => state.toBackBtn.oldNavIndex
   );
   const isScrolling = useAppSelector((state) => state.toBackBtn.isScrolling);
+  const isBackBtn = useAppSelector((state) => state.toBackBtn.isBackBtn);
   const burgerIsOpen = useAppSelector((state) => state.burger.isOpen);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
+      if (
+        document.body.clientHeight > window.screen.height &&
+        window.scrollY > 50
+      ) {
         dispatch(isScrollingWindow(true));
       } else {
         dispatch(isScrollingWindow(false));
@@ -47,18 +56,34 @@ const ToBackBtn: FC<PropsToBackBtn> = ({ to }) => {
     });
   }, []);
 
+  useEffect(() => {
+    if (burgerIsOpen) {
+      dispatch(isScrollingWindow(false));
+      dispatch(isBackBtnVisible(false));
+    } else {
+      if (window.scrollY > 200) {
+        dispatch(isScrollingWindow(true));
+      }
+      dispatch(isBackBtnVisible(true));
+    }
+  }, [burgerIsOpen]);
+
   if (to) {
     return (
-      <Link
-        to={oldHref}
-        className="to-back-btn"
-        onClick={() => {
-          dispatch(isSelestedMenuItem(oldSelestedNavItem));
-          zeroingScrollY();
-        }}
-      >
-        <KeyboardBackspaceIcon fontSize="large" />
-      </Link>
+      <>
+        {isBackBtn && (
+          <Link
+            to={oldHref}
+            className="to-back-btn"
+            onClick={() => {
+              dispatch(isSelestedMenuItem(oldSelestedNavItem));
+              zeroingScrollY();
+            }}
+          >
+            <KeyboardBackspaceIcon fontSize="large" />
+          </Link>
+        )}
+      </>
     );
   }
   return (

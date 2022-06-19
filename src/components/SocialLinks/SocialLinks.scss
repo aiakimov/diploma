@@ -1,0 +1,24 @@
+@import "../../App.scss";
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  & > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $mainColor;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border: 1px solid $lightColor;
+    &:hover {
+      background-color: $lightColor;
+      color: $mainColor;
+      border-color: $mainColor;
+    }
+  }
+}

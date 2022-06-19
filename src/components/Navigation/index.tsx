@@ -64,9 +64,9 @@ const Navigation: FC = () => {
       </NavLink>
       <Burger />
       <ul className="navigation__list">
-        {menuLinks.map((link, index) => {
-          return (
-            <AnimatePresence>
+        <AnimatePresence>
+          {menuLinks.map((link, index) => {
+            return (
               <li key={link.name} className="navigation__list-item">
                 <NavLink
                   onClick={() => {
@@ -82,9 +82,9 @@ const Navigation: FC = () => {
                   {Selested === index && <ActiveLine />}
                 </NavLink>
               </li>
-            </AnimatePresence>
-          );
-        })}
+            );
+          })}
+        </AnimatePresence>
       </ul>
     </nav>
   );

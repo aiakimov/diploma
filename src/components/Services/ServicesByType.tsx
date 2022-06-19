@@ -11,6 +11,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import ToBackBtn, { BackBtn } from "../ToBackBtn";
 
 import "./Services.scss";
+import Footer from "../Footer";
 
 const ServicesByType: FC = () => {
   const { type } = useParams();
@@ -19,6 +20,7 @@ const ServicesByType: FC = () => {
   const services = useAppSelector((state) => state.services.servicesByType);
   const descriptions = useAppSelector((state) => state.services.services);
   const loading = useAppSelector((state) => state.services.loadingServices);
+  const isBackBtnVisible = useAppSelector((state) => state.toBackBtn.isBackBtn);
 
   useEffect(() => {
     dispatch(getServicesByType(String(type)));
@@ -35,7 +37,7 @@ const ServicesByType: FC = () => {
         transition: { duration: 0 },
       }}
     >
-      <ToBackBtn to={BackBtn.back} />
+      {isBackBtnVisible ? <ToBackBtn to={BackBtn.back} /> : <></>}
       <Container>
         {loading && <div className="loader"></div>}
         {!loading &&
@@ -66,6 +68,7 @@ const ServicesByType: FC = () => {
           </ul>
         )}
       </Container>
+      {!loading && <Footer />}
     </motion.div>
   );
 };

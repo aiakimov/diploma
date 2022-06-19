@@ -10,6 +10,7 @@ import { toBackButton } from "../../app/slices/toBackBtnSlice";
 
 import { menuLinks } from "../Navigation";
 import { zeroingScrollY } from "../Navigation";
+import { link } from "fs";
 
 export enum ButtonStyle {
   gradient = " button--gradient",
@@ -37,11 +38,11 @@ const Button: FC<ButtonProps> = ({ text, style, type, href, pageLink }) => {
     return index;
   };
 
-  if (type === 2) {
+  if (type === ButtonType.button) {
     return <button className={style}>{text}</button>;
   }
 
-  if (type === 0) {
+  if (type === ButtonType.link) {
     return (
       <a href={href} className={style}>
         {text}

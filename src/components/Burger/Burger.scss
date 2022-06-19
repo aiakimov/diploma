@@ -1,5 +1,6 @@
 @import "../../App.scss";
 .burger {
+  height: calc(100vh - 100px);
   display: none;
   color: white;
   border: none;
@@ -27,6 +28,12 @@
     width: 100vw;
     height: calc(100vh - 100px);
     background: $gradientBackgroundColor;
+    .social-wrapper {
+      position: absolute;
+      padding: 0 3vw 0 10vw;
+      bottom: 26%;
+      left: 0;
+    }
 
     &-item > a {
       padding: 0 3vw 0 10vw;

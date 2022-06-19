@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.modal {
+  width: 33%;
+  height: fit-content;
+  padding: 30px 10px;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 9999;
+  position: absolute;
+  left: calc(33% - 10px);
+  top: 33%;
+  box-shadow: 0 0 15px 2px $primaryColor;
+  border-radius: 15px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    button {
+      max-width: fit-content;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 80%;
+    left: calc(10% - 10px);
+  }
+}

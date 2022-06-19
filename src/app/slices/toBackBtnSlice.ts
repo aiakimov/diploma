@@ -7,12 +7,14 @@ interface ToBackBtnSlice {
   oldHref: string;
   oldNavIndex: number;
   isScrolling: boolean;
+  isBackBtn: boolean;
 }
 
 const initialState: ToBackBtnSlice = {
   oldHref: "/",
   oldNavIndex: 0,
   isScrolling: false,
+  isBackBtn: false,
 };
 
 export const toBackBtnSlice = createSlice({
@@ -28,10 +30,14 @@ export const toBackBtnSlice = createSlice({
     isScrollingWindow: (state, action) => {
       state.isScrolling = action.payload;
     },
+    isBackBtnVisible: (state, action) => {
+      state.isBackBtn = action.payload;
+    },
   },
 });
 
-export const { toBackButton, isScrollingWindow } = toBackBtnSlice.actions;
+export const { toBackButton, isScrollingWindow, isBackBtnVisible } =
+  toBackBtnSlice.actions;
 
 export const toBackBtn = (state: RootState) => state.widget;
 

@@ -9,6 +9,7 @@ import { Container } from "@mui/system";
 import ToBackBtn, { BackBtn } from "../ToBackBtn";
 
 import "./Doctor.scss";
+import Footer from "../Footer";
 
 const Doctor: FC = () => {
   const { id } = useParams();
@@ -43,6 +44,7 @@ const Doctor: FC = () => {
           </div>
         </div>
       </Container>
+      <Footer />
     </motion.div>
   );
 };

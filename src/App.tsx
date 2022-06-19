@@ -1,3 +1,4 @@
+import { FC, useEffect, useState } from "react";
 import "./App.scss";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, LayoutGroup } from "framer-motion";
@@ -13,6 +14,9 @@ import Services from "./components/Services";
 import ServicesByType from "./components/Services/ServicesByType";
 import Widget from "./components/Widget";
 import ToBackBtn, { BackBtn } from "./components/ToBackBtn";
+import ModalCallBack from "./components/modals/modalCallBack";
+import Alerts from "./components/Alerts";
+import Reviews from "./components/Reviews";
 
 function App() {
   const location = useLocation();
@@ -22,7 +26,8 @@ function App() {
       <Header />
       <ToBackBtn to={BackBtn.up} />
       <Widget />
-      <AnimatePresence>
+      <Alerts />
+      <AnimatePresence initial={false} exitBeforeEnter>
         <LayoutGroup>
           <Routes location={location.pathname}>
             <Route path="/" element={<Home />} />
@@ -32,10 +37,12 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/specialists" element={<Specialists />} />
             <Route path="/specialists/:id" element={<Doctor />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </LayoutGroup>
-      </AnimatePresence>
+      </AnimatePresence>{" "}
+      <ModalCallBack />
     </>
   );
 }

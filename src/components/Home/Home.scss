@@ -50,14 +50,19 @@
 
 .intro {
   background: url(../../img/Home/background.jpg);
-  background-size: cover;
+  background-size: 120%;
+  background-position-y: bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
   animation: backgroundS 30s ease infinite;
   height: calc(100vh - 100px);
   color: white;
   width: 100%;
+  overflow: hidden;
+  @media screen and (max-width: 1200px) {
+    background-size: cover;
+    background-position-y: 0;
+  }
 
   &__wrapper {
     display: flex;
@@ -66,10 +71,9 @@
     justify-content: center;
     max-width: 60%;
     width: 600px;
-    padding: 20px;
     background: $gradientBackgroundColorTransparent;
     background-size: 800% 100%;
-    animation: gradient 10s ease infinite;
+    animation: gradient 10s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
     & > h1 {
       color: white;
       font-weight: 500;
@@ -99,7 +103,7 @@
       }
     }
     @media screen and (max-width: 576px) {
-      padding: 20px 4%;
+      padding: 60px 4% 30px;
       justify-content: flex-start;
     }
     @media screen and(max-width: 400px) {
@@ -155,12 +159,81 @@
     }
   }
 }
+/*--------------record-------------*/
 
-.blue {
-  height: 150vh;
-  background-color: blue;
+.record {
+  padding: 30px 0;
+  margin: 20px 0;
+  border-top: 1px solid $mainColor;
+  border-bottom: 1px solid $mainColor;
+  &__wrapper {
+    & > img {
+      width: 60px;
+    }
+    & > a {
+      & > h1 {
+        transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &:hover {
+          color: $mainColor;
+        }
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
 }
 
+/*--------------guarantee-------------*/
+.guarantee {
+  padding: 30px 0;
+  margin: 50px 0;
+  align-items: center;
+  background: $gradientBackgroundColorTransparent;
+  img {
+    width: 20%;
+  }
+  & > h2 {
+    margin: 0 0 50px 0;
+  }
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__box {
+    text-align: left;
+    display: flex;
+    width: 40%;
+    align-items: flex-start;
+    gap: 30px;
+    p {
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      align-items: center;
+    }
+    & > img {
+      width: 60px;
+    }
+    &--reverse {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+  }
+}
 /*--------------Animations-------------*/
 
 @keyframes gradient {

@@ -8,6 +8,7 @@ import { getServices } from "../../app/slices/servicesSlice";
 import Button, { ButtonStyle, ButtonType } from "../Button";
 
 import "./Services.scss";
+import Footer from "../Footer";
 
 const Services: FC = () => {
   const dispatch = useAppDispatch();
@@ -65,6 +66,7 @@ const Services: FC = () => {
             ))}
         </ul>
       </Container>
+      {!loading && <Footer />}
     </motion.div>
   );
 };

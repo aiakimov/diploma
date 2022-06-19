@@ -1,6 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import alertsSlice from "./slices/alertsSlice";
 import burgerMenuIsOpen from "./slices/burgerSlice";
+import isCallBackOpen from "./slices/modalSlice";
 import isSelestedMenuItem from "./slices/navigationSlice";
+import reviewsSlice from "./slices/reviewsSlice";
 import servicesSlice, { isLoadingServices } from "./slices/servicesSlice";
 import spcialistsSlice, {
   isLoadingSpetialists,
@@ -10,6 +13,8 @@ import widgetMenuIsOpen from "./slices/widgetSlice";
 
 export const store = configureStore({
   reducer: {
+    reviews: reviewsSlice,
+    alerts: alertsSlice,
     burger: burgerMenuIsOpen,
     navigation: isSelestedMenuItem,
     specialists: spcialistsSlice,
@@ -19,7 +24,9 @@ export const store = configureStore({
     loadingSpecialists: isLoadingSpetialists,
     widget: widgetMenuIsOpen,
     toBackBtn: toBackBtn,
+    modal: isCallBackOpen,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export type AppDispatch = typeof store.dispatch;
