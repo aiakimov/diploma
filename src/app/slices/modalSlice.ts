@@ -10,6 +10,7 @@ interface CallBack {
 }
 interface Record {
   name: string;
+  time: string;
   phone: string;
   date: string;
   doctor: string;
@@ -51,6 +52,7 @@ interface ModalSlice {
   RecordNameValue: string;
   RecordDateValue: string;
   RecordDoctorValue: string;
+  RecordShiftValue: string;
 }
 
 const initialState: ModalSlice = {
@@ -62,6 +64,7 @@ const initialState: ModalSlice = {
   RecordNameValue: "",
   RecordDateValue: "",
   RecordDoctorValue: "",
+  RecordShiftValue: "",
 };
 
 export const modalSlice = createSlice({
@@ -87,10 +90,13 @@ export const modalSlice = createSlice({
       state.RecordNameValue = action.payload;
     },
     recordDateValueChange: (state, action) => {
-      state.RecordNameValue = action.payload;
+      state.RecordDateValue = action.payload;
     },
     recordDoctorValueChange: (state, action) => {
       state.RecordDoctorValue = action.payload;
+    },
+    recordShiftValueChange: (state, action) => {
+      state.RecordShiftValue = action.payload;
     },
   },
   extraReducers: {
@@ -113,6 +119,7 @@ export const {
   recordNameValueChange,
   recordDateValueChange,
   recordDoctorValueChange,
+  recordShiftValueChange,
 } = modalSlice.actions;
 
 export const modal = (state: RootState) => state.modal;

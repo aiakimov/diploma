@@ -8,12 +8,12 @@ import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
-import "../modalCallBack/Modal.scss";
+import "./Modal.scss";
 
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -30,34 +30,52 @@ import {
   recordDateValueChange,
   recordDoctorValueChange,
   postRecord,
+  recordShiftValueChange,
 } from "../../app/slices/modalSlice";
+import { getDoctors } from "../../app/slices/specialistsSlice";
 
 const ModalRecord: FC = () => {
-  const [open, setOpen] = React.useState(false);
+  const [openRecord, setOpenRecord] = React.useState(false);
   const [validationName, setValidationName] = React.useState(false);
   const [validationTel, setValidationTel] = React.useState(false);
+  const [doctor, setDoctor] = React.useState("");
+  const [date, setDate] = React.useState("");
 
   const dispatch = useAppDispatch();
 
   const recordIsOpen = useAppSelector((state) => state.modal.RecordIsOpen);
   const inputTelValue = useAppSelector((state) => state.modal.RecordTelValue);
   const inputNameValue = useAppSelector((state) => state.modal.RecordNameValue);
-
-  const [age, setAge] = React.useState("");
+  const inputDateValue = useAppSelector((state) => state.modal.RecordDateValue);
+  const inputShiftValue = useAppSelector(
+    (state) => state.modal.RecordShiftValue
+  );
+  const inputDoctorValue = useAppSelector(
+    (state) => state.modal.RecordDoctorValue
+  );
+  const doctors = useAppSelector((state) => state.specialists.specialists);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setDoctor(event.target.value);
   };
 
-  const [value, setValue] = React.useState<Date | null>(
-    new Date("2018-01-01T00:00:00.000Z")
-  );
+  useEffect(() => {
+    dispatch(getDoctors());
+  }, []);
+
+  useEffect(() => {
+    dispatch(recordDateValueChange(date));
+  }, [date]);
 
   useEffect(() => {
     if (recordIsOpen) {
-      setOpen(true);
+      setOpenRecord(true);
     }
   }, [recordIsOpen]);
+
+  useEffect(() => {
+    dispatch(recordDoctorValueChange(doctor));
+  }, [doctor]);
 
   useEffect(() => {
     if (inputNameValue.length >= 3) {
@@ -94,15 +112,16 @@ const ModalRecord: FC = () => {
     dispatch(recordTelValueChange(""));
     dispatch(recordNameValueChange(""));
     dispatch(isRecordOpen());
-    setOpen(false);
+    setOpenRecord(false);
 
     dispatch(
       postRecord({
         id: inputTelValue + "." + new Date().toLocaleTimeString(),
+        time: new Date().toLocaleString(),
         phone: inputTelValue,
-        date: new Date().toLocaleString(),
+        date: inputDateValue,
         name: inputNameValue,
-        doctor: "akim",
+        doctor: inputDoctorValue,
       })
     );
     dispatch(successAlert(true));
@@ -110,14 +129,15 @@ const ModalRecord: FC = () => {
 
   const handleClose = () => {
     dispatch(isRecordOpen());
-    setOpen(false);
+    setOpenRecord(false);
   };
+
   return (
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
+        open={openRecord}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -125,7 +145,7 @@ const ModalRecord: FC = () => {
           timeout: 500,
         }}
       >
-        <Fade in={open}>
+        <Fade in={openRecord}>
           <Box className="modal">
             <Box
               className="modal__form"
@@ -150,7 +170,7 @@ const ModalRecord: FC = () => {
               <TextField
                 className="modal__form-input"
                 id="outlined-basic"
-                label="Имя"
+                label="ФИО"
                 variant="outlined"
                 type="text"
                 color={validationName ? "success" : "error"}
@@ -161,33 +181,64 @@ const ModalRecord: FC = () => {
               />
               <FormControl sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-helper-label">
-                  Age
+                  Специалист
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-standard"
-                  value={age}
+                  value={doctor}
+                  style={{ color: "green" }}
+                  color="success"
                   onChange={handleChange}
-                  label="Age"
+                  label="Специалист"
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  {doctors.map((el) => {
+                    return (
+                      <MenuItem
+                        key={el.id}
+                        value={el.name}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <p>{el.name}</p>
+
+                        <p style={{ fontSize: ".7rem", display: "block" }}>
+                          {el.title}
+                        </p>
+                      </MenuItem>
+                    );
+                  })}
                 </Select>
               </FormControl>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DateTimePicker
-                  label="Responsive"
-                  renderInput={(params) => <TextField {...params} />}
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                />
-              </LocalizationProvider>
+              <p className="form-subtitle">
+                Выберите предпочтительную дату и время для посещения
+              </p>
+              <input
+                className="calendar"
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+              <FormControl style={{ width: "70%" }}>
+                <RadioGroup
+                  onChange={(e) =>
+                    dispatch(recordShiftValueChange(e.target.value))
+                  }
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel
+                    value="8:00 - 14:00"
+                    control={<Radio color="success" />}
+                    label="8:00 - 14:00"
+                  />
+                  <FormControlLabel
+                    value="14:00 - 20:00"
+                    control={<Radio color="success" />}
+                    label="14:00 - 20:00"
+                  />
+                </RadioGroup>
+              </FormControl>
               <button
                 className="button"
                 onClick={(e) => {
