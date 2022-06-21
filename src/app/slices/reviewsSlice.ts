@@ -12,10 +12,8 @@ interface Review {
 
 export const getReviews = createAsyncThunk("reviews/get", async () => {
   try {
-    const reviews = await (
-      await axios.get("http://localhost:666/reviews")
-    ).data;
-    return reviews;
+    const reviews = await axios.get("http://localhost:666/reviews");
+    return reviews.data;
   } catch (e) {
     new Error();
   }
@@ -35,6 +33,7 @@ export const postReview = createAsyncThunk(
 interface reviewsSlice {
   reviews: Review[];
   loadingReviews: boolean;
+  loadingNewReviews: boolean;
   newRating: number;
   newName: string;
   newReview: string;
@@ -43,6 +42,7 @@ interface reviewsSlice {
 const initialState: reviewsSlice = {
   reviews: [],
   loadingReviews: false,
+  loadingNewReviews: false,
   newRating: 4,
   newName: "",
   newReview: "",
@@ -54,6 +54,9 @@ export const reviewsSlice = createSlice({
   reducers: {
     isLoadingReviews: (state) => {
       state.loadingReviews = !state.loadingReviews;
+    },
+    isLoadingNewReviews: (state) => {
+      state.loadingNewReviews = !state.loadingNewReviews;
     },
     setNewRating: (state, action: PayloadAction<number>) => {
       if (action.payload < 1) {
@@ -76,6 +79,7 @@ export const reviewsSlice = createSlice({
     "reviews/get/fulfilled": (state, action) => {
       state.reviews = action.payload;
       state.loadingReviews = false;
+      state.loadingNewReviews = false;
     },
     "reviews/get/rejected": (state, action) => {
       state.loadingReviews = false;
@@ -89,8 +93,13 @@ export const reviewsSlice = createSlice({
   },
 });
 
-export const { isLoadingReviews, setNewRating, setNewName, setNewReview } =
-  reviewsSlice.actions;
+export const {
+  isLoadingReviews,
+  setNewRating,
+  setNewName,
+  setNewReview,
+  isLoadingNewReviews,
+} = reviewsSlice.actions;
 
 export const loadingReviews = (state: RootState) => state.reviews;
 export default reviewsSlice.reducer;

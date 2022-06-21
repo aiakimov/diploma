@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import { getServicesByType, getServices } from "../../app/slices/servicesSlice";
-import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
+import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
 import { Container } from "@mui/system";
 import CircleIcon from "@mui/icons-material/Circle";
 

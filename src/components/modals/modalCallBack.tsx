@@ -22,7 +22,7 @@ import {
 
 import "./Modal.scss";
 
-export default function ModalCallBack() {
+function ModalCallBack() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useAppDispatch();
 
@@ -158,3 +158,5 @@ export default function ModalCallBack() {
     </div>
   );
 }
+
+export default ModalCallBack;

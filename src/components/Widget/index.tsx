@@ -11,7 +11,7 @@ import { menuLinks } from "../Navigation";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { widgetMenuIsOpen } from "../../app/slices/widgetSlice";
-import { isCallBackOpen } from "../../app/slices/modalSlice";
+import { isCallBackOpen, isRecordOpen } from "../../app/slices/modalSlice";
 
 import main from "../../img/widget/main.png";
 import call from "../../img/widget/call.png";
@@ -70,7 +70,10 @@ const Widget: FC = () => {
               <img src={callback}></img>
               <h4>Заказать звонок</h4>
             </li>
-            <li className="widget__list-item">
+            <li
+              className="widget__list-item"
+              onClick={() => dispatch(isRecordOpen())}
+            >
               <img src={calendar} alt="" />
               <h4>Записаться</h4>
             </li>

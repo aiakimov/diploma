@@ -5,7 +5,7 @@ import "./ToBackBtn.scss";
 import { Link, useLocation } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
+import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
 
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";

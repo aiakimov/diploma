@@ -5,7 +5,7 @@ import "./Button.scss";
 import { Link } from "react-router-dom";
 
 import { useAppDispatch } from "../../app/hooks";
-import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
+import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
 import { toBackButton } from "../../app/slices/toBackBtnSlice";
 
 import { menuLinks } from "../Navigation";

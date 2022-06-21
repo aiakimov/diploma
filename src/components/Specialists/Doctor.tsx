@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import { getDoctors } from "../../app/slices/specialistsSlice";
-import { isSelestedMenuItem } from "../../app/slices/navigationSlice";
+import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
 import { Container } from "@mui/system";
 import ToBackBtn, { BackBtn } from "../ToBackBtn";
 

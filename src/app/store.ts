@@ -1,8 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import alertsSlice from "./slices/alertsSlice";
 import burgerMenuIsOpen from "./slices/burgerSlice";
-import isCallBackOpen from "./slices/modalSlice";
-import isSelestedMenuItem from "./slices/navigationSlice";
+import modalSlice from "./slices/modalSlice";
+import isSelestedMenuItem from "./slices/NavigationSlice";
 import reviewsSlice from "./slices/reviewsSlice";
 import servicesSlice, { isLoadingServices } from "./slices/servicesSlice";
 import spcialistsSlice, {
@@ -24,7 +24,7 @@ export const store = configureStore({
     loadingSpecialists: isLoadingSpetialists,
     widget: widgetMenuIsOpen,
     toBackBtn: toBackBtn,
-    modal: isCallBackOpen,
+    modal: modalSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
