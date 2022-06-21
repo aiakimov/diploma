@@ -64,7 +64,7 @@ const Button: FC<ButtonProps> = ({ text, style, type, href, pageLink }) => {
         zeroingScrollY();
       }}
     >
-      {text}
+      <span> {text}</span>
       <ArrowRightAltRoundedIcon
         style={{ fontSize: "20px", padding: "0 0 0 5px" }}
       />

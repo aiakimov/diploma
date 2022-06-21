@@ -35,11 +35,8 @@ import {
 import { getDoctors } from "../../app/slices/specialistsSlice";
 
 const ModalRecord: FC = () => {
-  const [openRecord, setOpenRecord] = React.useState(false);
   const [validationName, setValidationName] = React.useState(false);
   const [validationTel, setValidationTel] = React.useState(false);
-  const [doctor, setDoctor] = React.useState("");
-  const [date, setDate] = React.useState("");
 
   const dispatch = useAppDispatch();
 
@@ -56,26 +53,12 @@ const ModalRecord: FC = () => {
   const doctors = useAppSelector((state) => state.specialists.specialists);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setDoctor(event.target.value);
+    dispatch(recordDoctorValueChange(event.target.value));
   };
 
   useEffect(() => {
     dispatch(getDoctors());
   }, []);
-
-  useEffect(() => {
-    dispatch(recordDateValueChange(date));
-  }, [date]);
-
-  useEffect(() => {
-    if (recordIsOpen) {
-      setOpenRecord(true);
-    }
-  }, [recordIsOpen]);
-
-  useEffect(() => {
-    dispatch(recordDoctorValueChange(doctor));
-  }, [doctor]);
 
   useEffect(() => {
     if (inputNameValue.length >= 3) {
@@ -111,8 +94,10 @@ const ModalRecord: FC = () => {
 
     dispatch(recordTelValueChange(""));
     dispatch(recordNameValueChange(""));
+    dispatch(recordDateValueChange(""));
+    dispatch(recordDoctorValueChange(""));
+    dispatch(recordShiftValueChange(""));
     dispatch(isRecordOpen());
-    setOpenRecord(false);
 
     dispatch(
       postRecord({
@@ -129,7 +114,6 @@ const ModalRecord: FC = () => {
 
   const handleClose = () => {
     dispatch(isRecordOpen());
-    setOpenRecord(false);
   };
 
   return (
@@ -137,7 +121,7 @@ const ModalRecord: FC = () => {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={openRecord}
+        open={recordIsOpen}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -145,7 +129,7 @@ const ModalRecord: FC = () => {
           timeout: 500,
         }}
       >
-        <Fade in={openRecord}>
+        <Fade in={recordIsOpen}>
           <Box className="modal">
             <Box
               className="modal__form"
@@ -186,7 +170,7 @@ const ModalRecord: FC = () => {
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-standard"
-                  value={doctor}
+                  value={inputDoctorValue}
                   style={{ color: "green" }}
                   color="success"
                   onChange={handleChange}
@@ -215,11 +199,14 @@ const ModalRecord: FC = () => {
               <input
                 className="calendar"
                 type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
+                value={inputDateValue}
+                onChange={(e) =>
+                  dispatch(recordDateValueChange(e.target.value))
+                }
               />
               <FormControl style={{ width: "70%" }}>
                 <RadioGroup
+                  value={inputShiftValue}
                   onChange={(e) =>
                     dispatch(recordShiftValueChange(e.target.value))
                   }

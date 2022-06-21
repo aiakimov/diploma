@@ -23,7 +23,6 @@ import {
 import "./Modal.scss";
 
 function ModalCallBack() {
-  const [open, setOpen] = React.useState(false);
   const dispatch = useAppDispatch();
 
   const [validationName, setValidationName] = React.useState(false);
@@ -52,7 +51,6 @@ function ModalCallBack() {
     dispatch(callBackTelValueChange(""));
     dispatch(callBackNameValueChange(""));
     dispatch(isCallBackOpen());
-    setOpen(false);
 
     dispatch(
       postCallBack({
@@ -82,15 +80,8 @@ function ModalCallBack() {
     }
   }, [inputTelValue]);
 
-  useEffect(() => {
-    if (callBackIsOpen) {
-      setOpen(true);
-    }
-  }, [callBackIsOpen]);
-
   const handleClose = () => {
     dispatch(isCallBackOpen());
-    setOpen(false);
   };
 
   return (
@@ -98,7 +89,7 @@ function ModalCallBack() {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
+        open={callBackIsOpen}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -106,7 +97,7 @@ function ModalCallBack() {
           timeout: 500,
         }}
       >
-        <Fade in={open}>
+        <Fade in={callBackIsOpen}>
           <Box className="modal">
             <Box
               className="modal__form"

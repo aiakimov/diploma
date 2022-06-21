@@ -31,15 +31,7 @@ const Footer: FC = () => {
           770401001 Лицензия на осуществление медицинской деятельности №
           ЛО-77-01-016119 от 29.05.2018 г.
         </p>
-        <p
-          style={{
-            borderTop: "2px solid white",
-            borderBottom: "2px solid white",
-            padding: "5px 0",
-          }}
-        >
-          developed by theAkim
-        </p>
+        <p className="typing">developed by theAkim</p>
       </Container>
     </section>
   );
