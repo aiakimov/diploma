@@ -58,8 +58,10 @@ const ModalRecord: FC = () => {
   };
 
   useEffect(() => {
-    dispatch(getDoctors());
-  }, []);
+    if (recordIsOpen) {
+      dispatch(getDoctors());
+    }
+  }, [recordIsOpen]);
 
   useEffect(() => {
     if (inputNameValue.length >= 3) {
