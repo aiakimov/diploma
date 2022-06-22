@@ -20,6 +20,7 @@ import { zeroingScrollY } from "../Navigation";
 export enum BackBtn {
   up,
   back,
+  home,
 }
 
 interface PropsToBackBtn {
@@ -68,7 +69,7 @@ const ToBackBtn: FC<PropsToBackBtn> = ({ to }) => {
     }
   }, [burgerIsOpen]);
 
-  if (to) {
+  if (to === BackBtn.back) {
     return (
       <>
         {isBackBtn && (
@@ -77,6 +78,24 @@ const ToBackBtn: FC<PropsToBackBtn> = ({ to }) => {
             className="to-back-btn"
             onClick={() => {
               dispatch(isSelestedMenuItem(oldSelestedNavItem));
+              zeroingScrollY();
+            }}
+          >
+            <KeyboardBackspaceIcon fontSize="large" />
+          </Link>
+        )}
+      </>
+    );
+  }
+  if (to === BackBtn.home) {
+    return (
+      <>
+        {isBackBtn && (
+          <Link
+            to="/"
+            className="to-back-btn"
+            onClick={() => {
+              dispatch(isSelestedMenuItem(0));
               zeroingScrollY();
             }}
           >

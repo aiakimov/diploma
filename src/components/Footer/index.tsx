@@ -12,16 +12,10 @@ const Footer: FC = () => {
         <div className="footer__wrapper">
           <SocialLinks />
           <div className="footer-navlinks">
-            <Link
-              to="/polzovatelskoe-soglashenie"
-              className="footer-navlinks-item"
-            >
+            <Link to="/user-agreement" className="footer-navlinks-item">
               Пользовательское соглашение
             </Link>
-            <Link
-              to="/politika-konfidentsialnosti"
-              className="footer-navlinks-item"
-            >
+            <Link to="/privacy-policy" className="footer-navlinks-item">
               Политика конфидециальности
             </Link>
           </div>

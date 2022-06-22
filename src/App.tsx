@@ -18,6 +18,8 @@ import ModalCallBack from "./components/modals/ModalCallBack";
 import ModalRecord from "./components/modals/ModalRecord";
 import Alerts from "./components/Alerts";
 import Reviews from "./components/Reviews";
+import PrivacyPolicyPage from "./components/PrivacyPolicyPage";
+import UserAgreementPage from "./components/UserAgreementPage";
 
 function App() {
   const location = useLocation();
@@ -39,6 +41,8 @@ function App() {
             <Route path="/specialists" element={<Specialists />} />
             <Route path="/specialists/:id" element={<Doctor />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/user-agreement" element={<UserAgreementPage />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </LayoutGroup>

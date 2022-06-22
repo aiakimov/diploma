@@ -1,13 +1,13 @@
 @import "../../App.scss";
 
 .modal {
-  width: 50%;
+  width: 40%;
   height: fit-content;
   padding: 30px 10px;
   background: rgba(255, 255, 255, 0.92);
   z-index: 9999;
   position: absolute;
-  left: 25%;
+  left: 30%;
   top: 20%;
   box-shadow: 0 0 15px 2px $primaryColor;
   border-radius: 15px;

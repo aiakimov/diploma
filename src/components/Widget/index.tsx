@@ -1,13 +1,7 @@
 import { FC } from "react";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-
-import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import "./Widget.scss";
-import { menuLinks } from "../Navigation";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { widgetMenuIsOpen } from "../../app/slices/widgetSlice";

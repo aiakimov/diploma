@@ -20,6 +20,8 @@ import {
   postCallBack,
 } from "../../app/slices/modalSlice";
 
+import Button, { ButtonType, ButtonStyle } from "../Button";
+
 import "./Modal.scss";
 
 function ModalCallBack() {
@@ -133,15 +135,15 @@ function ModalCallBack() {
                 }
                 value={inputNameValue}
               />
-              <button
-                className="button"
+              <Button
+                type={ButtonType.button}
+                style={ButtonStyle.fullfield}
+                text="Перезвонить"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(validate);
                 }}
-              >
-                Перезвонить
-              </button>
+              />
             </Box>
           </Box>
         </Fade>

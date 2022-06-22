@@ -28,9 +28,17 @@ interface ButtonProps {
   type: ButtonType;
   href?: string;
   pageLink?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: FC<ButtonProps> = ({ text, style, type, href, pageLink }) => {
+const Button: FC<ButtonProps> = ({
+  text,
+  style,
+  type,
+  href,
+  pageLink,
+  onClick,
+}) => {
   const dispatch = useAppDispatch();
 
   const findLink = () => {
@@ -39,7 +47,11 @@ const Button: FC<ButtonProps> = ({ text, style, type, href, pageLink }) => {
   };
 
   if (type === ButtonType.button) {
-    return <button className={style}>{text}</button>;
+    return (
+      <button onClick={onClick} className={style}>
+        {text}
+      </button>
+    );
   }
 
   if (type === ButtonType.link) {

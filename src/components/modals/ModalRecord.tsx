@@ -33,6 +33,7 @@ import {
   recordShiftValueChange,
 } from "../../app/slices/modalSlice";
 import { getDoctors } from "../../app/slices/specialistsSlice";
+import Button, { ButtonType, ButtonStyle } from "../Button";
 
 const ModalRecord: FC = () => {
   const [validationName, setValidationName] = React.useState(false);
@@ -226,15 +227,15 @@ const ModalRecord: FC = () => {
                   />
                 </RadioGroup>
               </FormControl>
-              <button
-                className="button"
+              <Button
+                type={ButtonType.button}
+                style={ButtonStyle.fullfield}
+                text="Перезвонить"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(validate);
                 }}
-              >
-                Перезвонить
-              </button>
+              />
             </Box>
           </Box>
         </Fade>

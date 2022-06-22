@@ -17,8 +17,13 @@ import phoneIcon from "../../img/widget/call.png";
 import { ButtonStyle, ButtonType } from "../Button";
 import Button from "../Button";
 import Footer from "../Footer";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+
+import { isRecordOpen } from "../../app/slices/modalSlice";
 
 const Home: FC = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -113,6 +118,7 @@ const Home: FC = () => {
               text="Записаться на прием"
               type={ButtonType.button}
               style={ButtonStyle.gradient}
+              onClick={() => dispatch(isRecordOpen())}
             />
           </div>
         </Container>
