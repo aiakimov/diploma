@@ -10,14 +10,33 @@ interface Review {
   body: string;
 }
 
-export const getReviews = createAsyncThunk("reviews/get", async () => {
-  try {
-    const reviews = await axios.get("http://localhost:666/reviews");
-    return reviews.data;
-  } catch (e) {
-    new Error();
+export const getThisPageOfReviews = createAsyncThunk(
+  "reviews/get",
+  async (page: string) => {
+    try {
+      const reviews = await axios.get(
+        `http://localhost:666/reviews?_page=${page}&_limit=5`
+      );
+      return reviews.data;
+    } catch (e) {
+      new Error();
+    }
   }
-});
+);
+
+export const getTotalCountReviews = createAsyncThunk(
+  "reviews/getTotal",
+  async () => {
+    try {
+      const reviews = await axios.get(
+        "http://localhost:666/reviews?_page=1&_limit=5"
+      );
+      return reviews.headers["x-total-count"];
+    } catch (e) {
+      new Error();
+    }
+  }
+);
 
 export const postReview = createAsyncThunk(
   "reviews/post",
@@ -34,6 +53,8 @@ interface reviewsSlice {
   reviews: Review[];
   loadingReviews: boolean;
   loadingNewReviews: boolean;
+  countReviews: string;
+  currentPage: string;
   newRating: number;
   newName: string;
   newReview: string;
@@ -41,6 +62,8 @@ interface reviewsSlice {
 
 const initialState: reviewsSlice = {
   reviews: [],
+  countReviews: "",
+  currentPage: "1",
   loadingReviews: false,
   loadingNewReviews: false,
   newRating: 4,
@@ -71,6 +94,9 @@ export const reviewsSlice = createSlice({
     setNewReview: (state, action: PayloadAction<string>) => {
       state.newReview = action.payload;
     },
+    setCurrentPage: (state, action: PayloadAction<string>) => {
+      state.currentPage = action.payload;
+    },
   },
   extraReducers: {
     "reviews/get/pending": (state, action) => {
@@ -85,6 +111,13 @@ export const reviewsSlice = createSlice({
       state.loadingReviews = false;
       new Error();
     },
+    "reviews/getTotal/pending": (state, action) => {},
+    "reviews/getTotal/fulfilled": (state, action) => {
+      state.countReviews = action.payload;
+    },
+    "reviews/getTotal/rejected": (state, action) => {
+      new Error();
+    },
     "reviews/post/pending": (state, action) => {},
     "reviews/post/fulfilled": (state, action) => {},
     "reviews/post/rejected": (state, action) => {
@@ -94,6 +127,7 @@ export const reviewsSlice = createSlice({
 });
 
 export const {
+  setCurrentPage,
   isLoadingReviews,
   setNewRating,
   setNewName,

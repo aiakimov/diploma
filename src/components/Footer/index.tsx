@@ -3,6 +3,8 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import SocialLinks from "../SocialLinks";
 
+import { zeroingScrollY } from "../Navigation";
+
 import "./Footer.scss";
 
 const Footer: FC = () => {
@@ -12,10 +14,18 @@ const Footer: FC = () => {
         <div className="footer__wrapper">
           <SocialLinks />
           <div className="footer-navlinks">
-            <Link to="/user-agreement" className="footer-navlinks-item">
+            <Link
+              to="/user-agreement"
+              className="footer-navlinks-item"
+              onClick={() => zeroingScrollY()}
+            >
               Пользовательское соглашение
             </Link>
-            <Link to="/privacy-policy" className="footer-navlinks-item">
+            <Link
+              onClick={() => zeroingScrollY()}
+              to="/privacy-policy"
+              className="footer-navlinks-item"
+            >
               Политика конфидециальности
             </Link>
           </div>

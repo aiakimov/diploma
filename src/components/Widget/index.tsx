@@ -44,7 +44,7 @@ const Widget: FC = () => {
             }}
             animate={{
               opacity: 1,
-              height: "auto",
+              height: "190px",
             }}
             exit={{
               opacity: 0,
