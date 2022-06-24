@@ -1,0 +1,34 @@
+@import "../../App.scss";
+
+.admin {
+  display: flex;
+  gap: 30px;
+  & th,
+  td {
+    color: $mainColor;
+    font-family: "Fira Code", monospace;
+    font-size: 0.9rem;
+    vertical-align: top;
+  }
+  &__records {
+    flex-basis: 80%;
+  }
+  &__records,
+  &__callbacks {
+    border: 1px solid $primaryColor;
+    padding: 30px;
+    margin-top: 30px;
+    height: fit-content;
+
+    h2 {
+      margin: 0 0 30px 0;
+    }
+    &-items > div {
+      box-shadow: 0px 2px 1px -1px $mainColor, 0px 1px 1px 0px $mainColor,
+        0px 1px 3px 0px $mainColor;
+    }
+  }
+}
+.red {
+  background-color: red;
+}

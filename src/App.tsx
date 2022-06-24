@@ -20,6 +20,7 @@ import Alerts from "./components/Alerts";
 import Reviews from "./components/Reviews";
 import PrivacyPolicyPage from "./components/PrivacyPolicyPage";
 import UserAgreementPage from "./components/UserAgreementPage";
+import Admin from "./components/Admin";
 
 function App() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/user-agreement" element={<UserAgreementPage />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </LayoutGroup>

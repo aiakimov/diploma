@@ -95,13 +95,6 @@ const ModalRecord: FC = () => {
       return;
     }
 
-    dispatch(recordTelValueChange(""));
-    dispatch(recordNameValueChange(""));
-    dispatch(recordDateValueChange(""));
-    dispatch(recordDoctorValueChange(""));
-    dispatch(recordShiftValueChange(""));
-    dispatch(isRecordOpen());
-
     dispatch(
       postRecord({
         id: inputTelValue + "." + new Date().toLocaleTimeString(),
@@ -110,8 +103,15 @@ const ModalRecord: FC = () => {
         date: inputDateValue,
         name: inputNameValue,
         doctor: inputDoctorValue,
+        shift: inputShiftValue,
       })
     );
+    dispatch(recordTelValueChange(""));
+    dispatch(recordNameValueChange(""));
+    dispatch(recordDateValueChange(""));
+    dispatch(recordDoctorValueChange(""));
+    dispatch(recordShiftValueChange(""));
+    dispatch(isRecordOpen());
     dispatch(successAlert(true));
   };
 

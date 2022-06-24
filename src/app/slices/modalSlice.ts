@@ -2,19 +2,21 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { RootState } from "../../app/store";
 import axios from "axios";
 
-interface CallBack {
+export interface CallBack {
   name: string;
   phone: string;
   date: string;
   id: string;
 }
-interface Record {
+
+export interface Record {
   name: string;
   time: string;
   phone: string;
   date: string;
   doctor: string;
   id: string;
+  shift: string;
 }
 
 export const postCallBack = createAsyncThunk(
@@ -31,6 +33,19 @@ export const postCallBack = createAsyncThunk(
     }
   }
 );
+
+export const getCallBacks = createAsyncThunk(
+  "modals/getCallBacks",
+  async () => {
+    try {
+      const responce = await axios.get("http://localhost:666/callBacks");
+      return responce.data;
+    } catch (e) {
+      new Error();
+    }
+  }
+);
+
 export const postRecord = createAsyncThunk(
   "modals/postRecord",
   async (Record: Record) => {
@@ -43,6 +58,15 @@ export const postRecord = createAsyncThunk(
   }
 );
 
+export const getRecords = createAsyncThunk("modals/getRecords", async () => {
+  try {
+    const responce = await axios.get("http://localhost:666/record");
+    return responce.data;
+  } catch (e) {
+    new Error();
+  }
+});
+
 interface ModalSlice {
   CallBackIsOpen: boolean;
   CallBackTelValue: string;
@@ -53,6 +77,8 @@ interface ModalSlice {
   RecordDateValue: string;
   RecordDoctorValue: string;
   RecordShiftValue: string;
+  CallBacks: CallBack[];
+  Records: Record[];
 }
 
 const initialState: ModalSlice = {
@@ -65,6 +91,8 @@ const initialState: ModalSlice = {
   RecordDateValue: "",
   RecordDoctorValue: "",
   RecordShiftValue: "",
+  CallBacks: [],
+  Records: [],
 };
 
 export const modalSlice = createSlice({
@@ -100,13 +128,33 @@ export const modalSlice = createSlice({
     },
   },
   extraReducers: {
-    "modals/ postCallBack / pending": (state, action) => {},
-    "modals/ postCallBack / fullfield": (state, action) => {},
-    "modals/ postCallBack / regected": (state, action) => {},
+    "modals/postCallBack/pending": (state, action) => {},
+    "modals/postCallBack/fulfilled": (state, action) => {},
+    "modals/postCallBack/regected": (state, action) => {
+      new Error();
+    },
 
-    "modals/ postRecord / pending": (state, action) => {},
-    "modals/ postRecord / fullfield": (state, action) => {},
-    "modals/ postRecord / regected": (state, action) => {},
+    "modals/postRecord/pending": (state, action) => {},
+    "modals/postRecord/fulfilled": (state, action) => {},
+    "modals/postRecord/regected": (state, action) => {
+      new Error();
+    },
+
+    "modals/getCallBacks/pending": (state, action) => {},
+    "modals/getCallBacks/fulfilled": (state, action) => {
+      state.CallBacks = action.payload.reverse();
+    },
+    "modals/getCallBacks/regected": (state, action) => {
+      new Error();
+    },
+
+    "modals/getRecords/pending": (state, action) => {},
+    "modals/getRecords/fulfilled": (state, action) => {
+      state.Records = action.payload.reverse();
+    },
+    "modals/getRecords/regected": (state, action) => {
+      new Error();
+    },
   },
 });
 
