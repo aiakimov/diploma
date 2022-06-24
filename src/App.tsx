@@ -48,7 +48,7 @@ function App() {
             <Route path="*" element={<Error />} />
           </Routes>
         </LayoutGroup>
-      </AnimatePresence>{" "}
+      </AnimatePresence>
       <ModalCallBack />
       <ModalRecord />
     </>

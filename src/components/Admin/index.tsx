@@ -47,8 +47,10 @@ const Admin: FC = () => {
                   <TableHead>
                     <TableRow>
                       <TableCell>Пациент</TableCell>
-                      <TableCell align="right">Номер телефона</TableCell>
-                      <TableCell align="right">Желаемая дата и время</TableCell>
+                      <TableCell>Номер телефона</TableCell>
+                      <TableCell align="center">
+                        Желаемая дата и время
+                      </TableCell>
                       <TableCell align="right">Специалист</TableCell>
                     </TableRow>
                   </TableHead>
@@ -68,8 +70,8 @@ const Admin: FC = () => {
                         >
                           {row.name}
                         </TableCell>
-                        <TableCell align="right">{row.phone}</TableCell>
-                        <TableCell align="right">
+                        <TableCell>{row.phone}</TableCell>
+                        <TableCell align="center">
                           {row.date}
                           <br />
                           {row.shift}
@@ -97,6 +99,7 @@ const Admin: FC = () => {
                   <TableBody>
                     {callBacks.map((row) => (
                       <TableRow
+                        hover
                         key={row.name}
                         sx={{
                           "&:last-child td, &:last-child th": { border: 0 },
