@@ -11,12 +11,19 @@
   top: 20%;
   box-shadow: 0 0 15px 2px $primaryColor;
   border-radius: 15px;
+  @media screen and (max-width: 768px) {
+    top: 10%;
+    padding: 10px;
+  }
 
   &__form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      gap: 5px;
+    }
 
     button {
       max-width: fit-content;

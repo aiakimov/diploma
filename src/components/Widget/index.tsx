@@ -53,20 +53,30 @@ const Widget: FC = () => {
             transition={{ damping: 30 }}
             className="widget__list"
           >
-            <a href="tel:+375444851882" className="widget__list-item">
+            <a
+              href="tel:+375444851882"
+              className="widget__list-item"
+              onClick={() => dispatch(widgetMenuIsOpen())}
+            >
               <img src={call} alt="" />
               <h4>Позвонить</h4>
             </a>
             <li
               className="widget__list-item"
-              onClick={() => dispatch(isCallBackOpen())}
+              onClick={() => {
+                dispatch(isCallBackOpen());
+                dispatch(widgetMenuIsOpen());
+              }}
             >
               <img src={callback}></img>
               <h4>Заказать звонок</h4>
             </li>
             <li
               className="widget__list-item"
-              onClick={() => dispatch(isRecordOpen())}
+              onClick={() => {
+                dispatch(isRecordOpen());
+                dispatch(widgetMenuIsOpen());
+              }}
             >
               <img src={calendar} alt="" />
               <h4>Записаться</h4>
