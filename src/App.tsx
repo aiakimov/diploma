@@ -14,7 +14,7 @@ import Services from "./components/Services";
 import ServicesByType from "./components/Services/ServicesByType";
 import Widget from "./components/Widget";
 import ToBackBtn, { BackBtn } from "./components/ToBackBtn";
-import ModalCallBack from "./components/modals/ModalCallBack";
+import ModalCallBack from "./components/modals/modalCallBack";
 import ModalRecord from "./components/modals/ModalRecord";
 import Alerts from "./components/Alerts";
 import Reviews from "./components/Reviews";
