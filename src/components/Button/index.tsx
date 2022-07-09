@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
 
 import "./Button.scss";
@@ -41,10 +41,10 @@ const Button: FC<ButtonProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const findLink = () => {
+  const findLink = useCallback(() => {
     const index = menuLinks.findIndex((el) => el.link === pageLink);
     return index;
-  };
+  }, []);
 
   if (type === ButtonType.button) {
     return (

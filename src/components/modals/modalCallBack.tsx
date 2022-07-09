@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import TextField from "@mui/material/TextField";
 
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   fieldInputAlert,
@@ -82,9 +82,9 @@ function ModalCallBack() {
     }
   }, [inputTelValue]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     dispatch(isCallBackOpen());
-  };
+  }, []);
 
   return (
     <div>

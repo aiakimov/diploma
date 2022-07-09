@@ -15,7 +15,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import "./Modal.scss";
 
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   fieldInputAlert,
@@ -53,9 +53,9 @@ const ModalRecord: FC = () => {
   );
   const doctors = useAppSelector((state) => state.specialists.specialists);
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = useCallback((event: SelectChangeEvent) => {
     dispatch(recordDoctorValueChange(event.target.value));
-  };
+  }, []);
 
   useEffect(() => {
     if (recordIsOpen) {
@@ -115,9 +115,9 @@ const ModalRecord: FC = () => {
     dispatch(successAlert(true));
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     dispatch(isRecordOpen());
-  };
+  }, []);
 
   return (
     <div>

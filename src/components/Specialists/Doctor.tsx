@@ -1,9 +1,8 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
-import { getDoctors } from "../../app/slices/specialistsSlice";
 import { isSelestedMenuItem } from "../../app/slices/NavigationSlice";
 import { Container } from "@mui/system";
 import ToBackBtn, { BackBtn } from "../ToBackBtn";
@@ -19,7 +18,7 @@ const Doctor: FC = () => {
     dispatch(isSelestedMenuItem(3));
   }, []);
   const doctors = useAppSelector((state) => state.specialists.specialists);
-  const thisDoctor = doctors[Number(id) - 1];
+  const thisDoctor = useMemo(() => doctors[Number(id) - 1], []);
   return (
     <motion.div
       className="doctor"

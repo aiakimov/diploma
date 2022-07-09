@@ -8,7 +8,6 @@ import "./UserAgreementPage.scss";
 const UserAgreementPage: FC = () => {
   return (
     <motion.div>
-      {" "}
       <ToBackBtn to={BackBtn.home} />
       <Container>
         <section className="user-agreement-page">
