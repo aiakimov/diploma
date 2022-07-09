@@ -5,4 +5,5 @@ technology stack: React, TypeScript, Redux Toolkit, React Router v6, axios, Fram
 To start it:
 
 ./diploma>> npm start
+
 ./diploma/server>> node server.js
